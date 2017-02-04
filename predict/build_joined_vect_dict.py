@@ -1,25 +1,29 @@
 # -*- coding: utf-8 -*-
 
 """
-join lexvec with word2vec and saves syn0, index2word and joined_dict models
+requires trained lexvec with word2vec models placed to ../data/result/ folder
+it will join them and save syn0, index2word and joined_dict files
+you can find download links for models here: https://github.com/lang-uk/tonal-model/#used-word-embeddings-models
 """
 
 import sys
-
-from gensim.models import Word2Vec
-
-sys.path.append('../')
+import os
 
 import numpy as np
+from gensim.models import Word2Vec
+
+currentDirectory = os.path.dirname(__file__)
+sys.path.append(os.path.join(currentDirectory, '../')) # This will get you to source
+
 from utils import *
 
 log('loading lexVecModel')
-lexVecModel = Word2Vec.load_word2vec_format(result_folder + 'new_vec/lexvec', binary=False)
+lexVecModel = Word2Vec.load_word2vec_format(result_folder + 'lexvec', binary=False)
 lexVecModel.init_sims(replace=True)
 log('done')
 
 log('loading word2vec')
-word2vecModel = Word2Vec.load_word2vec_format(result_folder + 'new_vec/word2vec', binary=False)
+word2vecModel = Word2Vec.load_word2vec_format(result_folder + 'word2vec', binary=False)
 word2vecModel.init_sims(replace=True)
 log('done')
 
@@ -51,13 +55,13 @@ for word in lexVecModel.vocab:
 
 print('saving')
 
-with open(result_folder + 'new_vec/joined_dict', 'wb') as f:
+with open(result_folder + 'joined_dict', 'wb') as f:
     msgpack.pack(joined_dict, f)
 
-with open(result_folder + 'new_vec/index2word', 'wb') as f:
+with open(result_folder + 'index2word', 'wb') as f:
     msgpack.pack(index2word, f)
 
-with open(result_folder + 'new_vec/syn0', 'wb') as f:
+with open(result_folder + 'syn0', 'wb') as f:
     msgpack.pack(syn0, f)
 
 print('done')
