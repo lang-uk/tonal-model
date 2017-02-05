@@ -76,7 +76,7 @@ model.add(Dropout(0.5))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(optimizer='adam', loss='mse')
 
-#model.load_weights('tonePredictorUkr.h5')
+#model.load_weights(result_folder + 'predict/tonePredictorUkr.h5')
 log('starting learning')
 
 model.fit(X, y,

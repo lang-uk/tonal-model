@@ -11,7 +11,7 @@ import msgpack
 from utils import *
 
 log('loading index2word file')
-with open(result_folder + 'new_vec/index2word', 'rb') as f:
+with open(result_folder + 'index2word', 'rb') as f:
     index2word = np.array(msgpack.unpack(f, encoding='utf-8'))
 
 log('read original tsv file')
@@ -19,7 +19,7 @@ tsv = pd.read_csv(data_folder + 'orig-tone-dict-v2.tsv', sep='\t', header=None, 
 tones = dict(zip(tsv.word, tsv.tone))
 
 log('loading predictions')
-preds = np.load(result_folder + 'new_vec/predict/preds-all.npy')
+preds = np.load(result_folder + 'predict/preds-all.npy')
 dic = []
 for i in range(0, len(preds)):
     w = index2word[i]
@@ -33,11 +33,11 @@ dic = np.array(sorted(dic, key=lambda l: l[1], reverse=True))
 pos = dic[:2000,  :]
 neg = dic[-2000:, :][::-1]
 
-with codecs.open(result_folder + 'new_vec/predict/top_pos_N.txt', "w", "utf-8") as stream:
+with codecs.open(result_folder + 'predict/top_pos_N.txt', "w", "utf-8") as stream:
     for i in range(0, len(pos)):
         stream.write(pos[i][0] + '\t' + str(pos[i][1]) + u"\n")
 
-with codecs.open(result_folder + 'new_vec/predict/top_neg_N.txt', "w", "utf-8") as stream:
+with codecs.open(result_folder + 'predict/top_neg_N.txt', "w", "utf-8") as stream:
     for i in range(0, len(neg)):
         stream.write(neg[i][0] + '\t' + str(neg[i][1]) + u"\n")
 
