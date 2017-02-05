@@ -41,8 +41,8 @@ If you don't want to calculate word vectors for yourself, you can obtain them fr
 `predict/save_best.py` - take best negative and positive candidates  
 
 ### Credits
-Oleksandr Marykovskyi, Vyacheslav Tykhonov provided the seed dictionary  
-Serhiy Shehovtsov wrote the code and ran numerous experiments  
-Oles Petriv created and trained neural network model  
-Vsevolod Dyomkin proof-read the result and prepared it for publishing  
-Dmitry Chaplinsky led the project :)
+**Oleksandr Marykovskyi**, **Vyacheslav Tykhonov** provided the seed dictionary  
+**Serhiy Shehovtsov** wrote the code and ran numerous experiments  
+**Oles Petriv** created and trained neural network model  
+**Vsevolod Dyomkin** proof-read the result and prepared it for publishing  
+**Dmitry Chaplinsky** led the project :)
