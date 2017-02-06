@@ -87,6 +87,8 @@ model.fit(X, y,
           callbacks=[ModelCheckpoint(result_folder + 'predict/tonePredictorUkr.h5',
                                      save_best_only=True, monitor='val_loss')])
 
+model.save_weights(result_folder + 'predict/model.h5')
+
 with open(result_folder + 'syn0', 'rb') as f:
     syn0 = np.array(msgpack.unpack(f))
 
