@@ -30,7 +30,7 @@ run `split_to_chunks/wiki_to_sentences` to tokenize text and save chunks with li
 `train/learn.py` - will train **word2vec** model
 
 ### Building LexVec model
-[https://github.com/alexandres/lexvec](LexVec) was used on the same data with settings identical to Word2Vec to calculate embeddings.
+[LexVec](https://github.com/alexandres/lexvec) was used on the same data with settings identical to Word2Vec to calculate embeddings.
 
 ### Used word embeddings models
 If you don't want to calculate word vectors for yourself, you can obtain them from http://lang.org.ua/models website or download from Google Drive ([https://drive.google.com/file/d/0B9adEr6qDus4TjVVUW9CcEkzSjQ/view](LexVec), [https://drive.google.com/open?id=0B9adEr6qDus4dkRpaDZ4bWZCc2M](Word2Vec))
